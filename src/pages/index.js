@@ -19,7 +19,7 @@ const IndexPage = () => (
             keywords
           }
         }
-        allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___order] }, filter: {fields: { sourceName: { eq: "courses" } }}) {
+        allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___order] }, filter: {fields: { isCourse: { eq: true } }}) {
           edges {
             node {
               id

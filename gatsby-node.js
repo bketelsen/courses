@@ -1,4 +1,5 @@
 const path = require("path");
+const { createFilePath } = require(`gatsby-source-filesystem`);
 
 exports.createPages = async ({  actions, graphql }) => {
   const { createPage } = actions;
@@ -19,6 +20,8 @@ exports.createPages = async ({  actions, graphql }) => {
             id
             fields {
               sourceName
+              course
+              isCourse
             }
             frontmatter {
               order
@@ -62,13 +65,26 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
   if (node.internal.type === `MarkdownRemark`) {
     const parent = getNode(node.parent);
-
     if (parent.internal.type === "File") {
       createNodeField({
         name: `sourceName`,
         node,
         value: path.dirname(parent.absolutePath).split(path.sep).pop()
       });
+      if (parent.relativeDirectory !="" ){
+        console.log(parent.relativeDirectory);
+      createNodeField({
+        name: `course`,
+        node,
+        value: parent.relativeDirectory
+      });
+    } else {
+      createNodeField({
+        name: `isCourse`,
+        node,
+        value: true
+      });
+      }
     }
   }
 };

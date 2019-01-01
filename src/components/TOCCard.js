@@ -3,15 +3,15 @@ import Link from "gatsby-link";
 
 import "./TOCCard.css";
 
-const LessonCard = ({ content, title }) => (
+const CourseCard = ({ content, title }) => (
   <div className="main-card">
     <h1 className="lesson-title gradient">{title}</h1>
     <div className="lesson-content">
       <ol>
-        {content.map(lesson => (
-          <li key={lesson.node.frontmatter.path}>
-            <Link to={lesson.node.frontmatter.path}>
-              {lesson.node.frontmatter.title}
+        {content.map(course => (
+          <li key={course.node.frontmatter.path}>
+            <Link to={course.node.frontmatter.path}>
+              {course.node.frontmatter.title}
             </Link>
           </li>
         ))}
@@ -20,4 +20,4 @@ const LessonCard = ({ content, title }) => (
   </div>
 );
 
-export default LessonCard;
+export default CourseCard;

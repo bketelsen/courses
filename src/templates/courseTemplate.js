@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "gatsby-link";
 import { graphql } from "gatsby";
+import Card from "../components/TOCLesson";
 
 export default function Template(props) {
   let { markdownRemark, allMarkdownRemark } = props.data; // data.markdownRemark holds our post data
@@ -10,6 +11,10 @@ export default function Template(props) {
 
   return (
     <div className="lesson-container">
+        <Card
+          title="Lessons"
+          content={allMarkdownRemark.edges}
+        />
       <div className="lesson">
         <h1>{frontmatter.title}</h1>
         <h2>{frontmatter.date}</h2>
@@ -35,6 +40,7 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(
       sort: { order: ASC, fields: [frontmatter___order] }
+     	filter: { fields: {course: { eq: "introgo" }}}
       limit: 1000
     ) {
       edges {

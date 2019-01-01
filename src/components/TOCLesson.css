@@ -1,6 +1,8 @@
-.main-card {
+.lesson-main-card {
   border: 1px solid #ccc;
   border-radius: 8px;
+  width: 20%;
+  float: left;
   margin: 0;
   overflow: hidden;
   background-color: white;
