@@ -19,7 +19,7 @@ const IndexPage = () => (
             keywords
           }
         }
-        allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___order] }) {
+        allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___order] }, filter: {fields: { sourceName: { eq: "courses" } }}) {
           edges {
             node {
               id
@@ -41,7 +41,7 @@ const IndexPage = () => (
         </div>
 
         <Card
-          title="Table of Contents"
+          title="Courses"
           content={props.allMarkdownRemark.edges}
         />
       </div>

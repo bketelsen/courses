@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: "Gatsby Starter Course",
-    subtitle: "For making great content",
+    title: "Go Courses",
+    subtitle: "Learn Go",
     description:
       "This is the description that will show up when people share as well as on search engines",
     keywords: [
@@ -18,6 +18,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-create-client-paths`,
       options: { prefixes: [`/app/*`] },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/courses`,
+        name: "markdown-pages"
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,

@@ -4,6 +4,7 @@ exports.createPages = async ({  actions, graphql }) => {
   const { createPage } = actions;
 
   const lessonTemplate = path.resolve(`src/templates/lessonTemplate.js`);
+  const courseTemplate = path.resolve(`src/templates/courseTemplate.js`);
 
   return graphql(`
     {
@@ -16,6 +17,9 @@ exports.createPages = async ({  actions, graphql }) => {
             excerpt(pruneLength: 250)
             html
             id
+            fields {
+              sourceName
+            }
             frontmatter {
               order
               path
@@ -31,9 +35,10 @@ exports.createPages = async ({  actions, graphql }) => {
     }
 
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+      console.log(node.fields.sourceName);
       createPage({
         path: node.frontmatter.path,
-        component: lessonTemplate
+        component: (node.fields.sourceName == "courses" ? courseTemplate : lessonTemplate)
       });
     });
   });
@@ -49,5 +54,21 @@ exports.onCreatePage = async ({ page, actions }) => {
 
     // Update the page.
     createPage(page)
+  }
+};
+
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions;
+
+  if (node.internal.type === `MarkdownRemark`) {
+    const parent = getNode(node.parent);
+
+    if (parent.internal.type === "File") {
+      createNodeField({
+        name: `sourceName`,
+        node,
+        value: path.dirname(parent.absolutePath).split(path.sep).pop()
+      });
+    }
   }
 };
