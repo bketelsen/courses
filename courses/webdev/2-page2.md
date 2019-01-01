@@ -1,5 +1,5 @@
 ---
-path: "/courses/webdev/page-2"
+path: "/courses/webdev/page2"
 title: "Page 2"
 order: 1
 ---

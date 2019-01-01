@@ -1,7 +1,7 @@
 ---
 path: "/courses/webdev"
 title: "Intro to Web Dev in Go"
-order: 0
+order: 1
 ---
 
 This is page one.
