@@ -1,5 +1,5 @@
 ---
-path: "/app/lessons/introgo/intro"
+path: "/courses/introgo/intro"
 title: "Introduction"
 order: 0
 ---

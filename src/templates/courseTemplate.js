@@ -29,7 +29,7 @@ export default function Template(props) {
 }
 
 export const pageQuery = graphql`
-  query CourseByPath($path: String!) {
+  query CourseByPath($path: String!, $course: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       frontmatter {
@@ -40,7 +40,7 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(
       sort: { order: ASC, fields: [frontmatter___order] }
-     	filter: { fields: {course: { eq: "introgo" }}}
+     	filter: { fields: { isCourse: {eq: false}, course: {eq: $course }}}
       limit: 1000
     ) {
       edges {

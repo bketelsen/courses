@@ -1,10 +1,10 @@
 ---
-path: "/courses/webdev"
-title: "Intro to Web Dev in Go"
+path: "/courses/webdev/intro"
+title: "Introduction"
 order: 0
 ---
 
-This is page one.
+This is web dev page one.
 
 ## Check out this image
 

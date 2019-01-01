@@ -2,6 +2,7 @@ const path = require("path");
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
 exports.createPages = async ({  actions, graphql }) => {
+  console.log("create pages");
   const { createPage } = actions;
 
   const lessonTemplate = path.resolve(`src/templates/lessonTemplate.js`);
@@ -38,29 +39,35 @@ exports.createPages = async ({  actions, graphql }) => {
     }
 
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      console.log(node.fields.sourceName);
+      if (node.fields.sourceName ==="courses") {
+        console.log("creating a course page");
+        console.log(node.fields.course);
       createPage({
         path: node.frontmatter.path,
-        component: (node.fields.sourceName == "courses" ? courseTemplate : lessonTemplate)
+        component: courseTemplate,
+        context: {
+          course: node.fields.course
+        }
       });
+      } else {
+        console.log("creating a lesson page");
+        console.log(node.fields.course);
+      createPage({
+        path: node.frontmatter.path,
+        component: lessonTemplate,
+        context: {
+          course: node.fields.course
+        }
+
+      });
+    }
     });
   });
 };
 
-exports.onCreatePage = async ({ page, actions }) => {
-  const { createPage } = actions
-
-  // page.matchPath is a special key that's used for matching pages
-  // only on the client.
-  if (page.path.match(/^\/app/)) {
-    page.matchPath = `/app/*`
-
-    // Update the page.
-    createPage(page)
-  }
-};
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
+  console.log("create node");
   const { createNodeField } = actions;
 
   if (node.internal.type === `MarkdownRemark`) {
@@ -71,18 +78,28 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
         node,
         value: path.dirname(parent.absolutePath).split(path.sep).pop()
       });
+      createNodeField({
+        name: `isCourse`,
+        node,
+        value: false
+      });
       if (parent.relativeDirectory !="" ){
-        console.log(parent.relativeDirectory);
+
       createNodeField({
         name: `course`,
         node,
         value: parent.relativeDirectory
       });
-    } else {
+} else {
       createNodeField({
         name: `isCourse`,
         node,
         value: true
+      });
+      createNodeField({
+        name: `course`,
+        node,
+        value: node.frontmatter.path.split(path.sep).pop()
       });
       }
     }

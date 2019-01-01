@@ -1,9 +1,17 @@
 ---
 path: "/courses/introgo"
-title: "Introduction to Go"
+title: "Intro to Go"
 order: 0
 ---
 
-## Take this course!
+This is page one.
 
-I'm such a course, you wouldn't even believe it.
+## Check out this image
+
+![Gatsby Logo](./images/logo.svg)
+
+## Check out a code sample
+
+```js
+const x = 2 + 2;
+```
