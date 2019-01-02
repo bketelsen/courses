@@ -1,5 +1,5 @@
 .gradient {
-  background: linear-gradient(135deg, #ffa84c 0%, #ff7b0d 100%);
+  background: linear-gradient(135deg, #52414c 0%, #9f956c 100%);
 }
 
 .navbar {
@@ -23,7 +23,7 @@
 }
 
 .navbar-brand.navbar-brand:hover {
-  color: #777;
+  color: #cfd186;
 }
 
 .navbar-brand.navbar-brand:focus {

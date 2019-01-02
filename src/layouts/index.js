@@ -7,6 +7,8 @@ import "bootstrap/dist/css/bootstrap.css";
 import "prismjs/themes/prism-solarizedlight.css";
 import "code-mirror-themes/themes/monokai.css";
 import "./index.css";
+import Sidebar from "../components/sidebar";
+
 
 const TemplateWrapper = props => (
   <StaticQuery
@@ -25,12 +27,8 @@ const TemplateWrapper = props => (
             }
           ]}
         />
-        <div className="navbar navbar-light gradient">
-          <Link to="/" className="navbar-brand">
-            {data.site.siteMetadata.title}
-          </Link>
-        </div>
-        <div className="main">{props.children}</div>
+        {props.children}
+
       </div>
     )}
     query={graphql`

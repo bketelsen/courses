@@ -1,9 +1,9 @@
 import React from "react";
 import Link from "gatsby-link";
 
-import "./TOCLesson.css";
+import "./TOCCourse.css";
 
-const LessonCard = ({ content, title }) => (
+const CourseCard = ({ content, title }) => (
   <div className="lesson-main-card">
     <h1 className="lesson-title gradient">{title}</h1>
     <div className="lesson-content">
@@ -20,4 +20,4 @@ const LessonCard = ({ content, title }) => (
   </div>
 );
 
-export default LessonCard;
+export default CourseCard;

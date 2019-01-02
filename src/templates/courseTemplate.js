@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "gatsby-link";
 import { graphql } from "gatsby";
-import Card from "../components/TOCLesson";
+import Card from "../components/TOCCourse";
 
 export default function Template(props) {
   let { markdownRemark, allMarkdownRemark } = props.data; // data.markdownRemark holds our post data
@@ -12,7 +12,7 @@ export default function Template(props) {
   return (
     <div className="lesson-container">
         <Card
-          title="Lessons"
+          title="Contents"
           content={allMarkdownRemark.edges}
         />
       <div className="lesson">

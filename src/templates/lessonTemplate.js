@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "gatsby-link";
 import { graphql } from "gatsby";
+import Sidebar from "../components/sidebar";
 
 export default function Template(props) {
   let { markdownRemark, allMarkdownRemark } = props.data; // data.markdownRemark holds our post data
@@ -31,6 +32,10 @@ export default function Template(props) {
       </Link>
     ) : null;
   return (
+
+            <Sidebar
+          title="Lessons"
+          content={allMarkdownRemark.edges}>
     <div className="lesson-container">
       <div className="lesson">
         <h1>{frontmatter.title}</h1>
@@ -45,6 +50,8 @@ export default function Template(props) {
         </div>
       </div>
     </div>
+
+        </Sidebar>
   );
 }
 
