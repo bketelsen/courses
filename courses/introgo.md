@@ -4,14 +4,11 @@ title: "Intro to Go"
 order: 0
 ---
 
-This is page one.
+## This is the Landing Page for Intro to Go
 
-## Check out this image
+This course will walk you through x, until you learn y.
 
-![Gatsby Logo](./images/logo.svg)
+## Reasons to take this course
 
-## Check out a code sample
-
-```js
-const x = 2 + 2;
-```
+* It's free
+* You're awesome
