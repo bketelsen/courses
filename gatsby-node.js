@@ -67,7 +67,6 @@ exports.createPages = async ({  actions, graphql }) => {
 
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
-  console.log("create node");
   const { createNodeField } = actions;
 
   if (node.internal.type === `MarkdownRemark`) {
