@@ -13,7 +13,8 @@ module.exports = {
   },
   //pathPrefix: "/my-repo-name", // if you're using GitHub Pages, put the name of the repo here with a leading slash
   plugins: [
-	  `gatsby-plugin-netlify-identity-widget`,
+    `gatsby-plugin-netlify-identity-widget`,
+    `gatsby-plugin-netlify`,
     `gatsby-plugin-layout`,
     {
       resolve: `gatsby-plugin-create-client-paths`,
