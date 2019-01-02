@@ -2,6 +2,8 @@
 path: "/courses/webdev"
 title: "Intro to Web Dev in Go"
 order: 1
+videoid:  "309130727"
+
 ---
 
 This is page one.

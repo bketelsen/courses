@@ -36,6 +36,7 @@ export const pageQuery = graphql`
         path
         title
         order
+        videoid
       }
     }
     allMarkdownRemark(
@@ -49,6 +50,7 @@ export const pageQuery = graphql`
             order
             path
             title
+            videoid
           }
         }
       }

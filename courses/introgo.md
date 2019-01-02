@@ -1,7 +1,10 @@
 ---
 path: "/courses/introgo"
 title: "Intro to Go"
-order: 0
+order: 0 
+videoid:  "309130727"
+
+
 ---
 
 ## This is the Landing Page for Intro to Go

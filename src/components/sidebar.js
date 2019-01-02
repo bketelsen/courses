@@ -21,7 +21,7 @@ class Sidebar extends React.Component {
         <h3>Site</h3>
       </div>
             <Link to="/">
-              Home
+              Course List
             </Link>
       <div className="sidebar-header">
         <h3>{this.props.title}</h3>

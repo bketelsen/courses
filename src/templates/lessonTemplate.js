@@ -2,6 +2,7 @@ import React from "react";
 import Link from "gatsby-link";
 import { graphql } from "gatsby";
 import Sidebar from "../components/sidebar";
+import Vimeo from '@u-wave/react-vimeo';
 
 export default function Template(props) {
   let { markdownRemark, allMarkdownRemark } = props.data; // data.markdownRemark holds our post data
@@ -40,6 +41,10 @@ export default function Template(props) {
       <div className="lesson">
         <h1>{frontmatter.title}</h1>
         <h2>{frontmatter.date}</h2>
+    <Vimeo 
+        video={ frontmatter.videoid } 
+        width="1080"
+        />
         <div
           className="lesson-content"
           dangerouslySetInnerHTML={{ __html: html }}
@@ -63,6 +68,7 @@ export const pageQuery = graphql`
         path
         title
         order
+        videoid
       }
     }
     allMarkdownRemark(
@@ -76,6 +82,7 @@ export const pageQuery = graphql`
             order
             path
             title
+            videoid
           }
         }
       }

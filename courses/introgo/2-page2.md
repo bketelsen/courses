@@ -2,6 +2,8 @@
 path: "/courses/introgo/gettingstarted"
 title: "Getting Started with Go"
 order: 1
+videoid:  "309130727"
+
 ---
 
 
