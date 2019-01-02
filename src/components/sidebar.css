@@ -42,9 +42,6 @@
 .sidebar-header{
   text-transform: uppercase;
 }
-.sidebar-header h3 {
-  text-align: center;
-}
 #sidebar {
   min-width: 250px;
   max-width: 250px;

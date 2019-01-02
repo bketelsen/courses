@@ -16,6 +16,13 @@ class Sidebar extends React.Component {
    return (
   <div className="wrapper">
     <nav id="sidebar" className={activeClass + " gradient"}>
+
+      <div className="sidebar-header">
+        <h3>Site</h3>
+      </div>
+            <Link to="/">
+              Home
+            </Link>
       <div className="sidebar-header">
         <h3>{this.props.title}</h3>
       </div>
