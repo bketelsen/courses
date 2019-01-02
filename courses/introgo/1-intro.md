@@ -4,4 +4,4 @@ title: "Introduction"
 order: 0
 ---
 
-y
+This is the opening lesson.
