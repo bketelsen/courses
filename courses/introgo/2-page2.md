@@ -65,16 +65,16 @@ You should see something like:
 
 Now that you have a Go development environment set up, download the course material for this class:
 
-	go get -u github.com/gophertrain/material
+	go get -u gopher.rocks/source
 
 ## Test your setup
 
-	cd $GOPATH/src/github.com/gophertrain/material/gettingstarted/exercises/hello
+	cd $GOPATH/src/gopher.rocks/source/introgo/exercises/hello
 	go run main.go
 
 You should see:
 
-	Hello World!
+	hello world!
 
 Nothing like starting with the classics :)
 
@@ -83,21 +83,19 @@ Nothing like starting with the classics :)
 
 Popular Go Editors:
 
-vim and neovim with vim-go plugin *Favorite terminal
+vim and neovim with vim-go plugin 
 
 emacs with go-mode.el
 
-Visual Studio Code with vscode-go (works with debugging!) *Favorite GUI
+Visual Studio Code with vscode-go (works with debugging!) 
 
 Atom with go-plus
 
 IntelliJ IDEA with Go plugin
 
-## Homework Tonight
+## Before You Get Too Deep
 
 Pick your favorite editor and configure it for Go development.
-
-Do not choose this week to learn VIM or Emacs, please :) It will only end in sorrow. Don't do this in class today, we're moving FAST and you'll miss important things.
 
 https://github.com/fatih/vim-go-tutorial (vim)
 
@@ -107,14 +105,12 @@ http://marcio.io/2015/07/supercharging-atom-editor... (atom)
 
 https://github.com/Microsoft/vscode-go (VS Code)
 
-## The Go Playground
 
+## The Go Playground
 
 Even if you don't have an editor configured locally you can still play with Go from your browser.
 
-.link https://play.golang.org
-
-Limitations:
+[The Go Playground](https://play.golang.org)
 
 The Go Playground is a web service that runs on golang.org's servers. The service receives a Go program, compiles, links, and runs the program inside a sandbox, then returns the output.
 
@@ -126,17 +122,15 @@ The playground can use most of the standard library, with some exceptions. The o
 
 In the playground the time begins at 2009-11-10 23:00:00 UTC (determining the significance of this date is an exercise for the reader). This makes it easier to cache programs by giving them deterministic output.
 
-There are also limits on execution time and on CPU and memory usage.
-
-Therefore: No file IO, nothing useful with time or dates, can't use any external packages.
-
-## The Go Playground
+There are also limits on execution time and on CPU and memory usage. Therefore: No file IO, nothing useful with time or dates, can't use any external packages.
 
 Even with all those limitations Go developers love the Go Playground - it's a great place to share code, even if it can't run or compile. You can enter code then click the "SHARE" button which will give you a permanent URL to that code.
 
 Try it now with this link: 
 
-.link https://play.golang.org/p/992fMmkkxr Hello World
+[Hello World](https://play.golang.org/p/992fMmkkxr)
+
+In this course we will use Playground links to show runnable code sometimes, but most of the material will be in the repository on [gopher.rocks](https://github.com/bketelsen/lessons).
 
 ## The Go Command
 
@@ -150,11 +144,6 @@ Several common commands:
 	go get github.com/someone/package
 	go install some/package
 
-
-## Playground
-
-.play gettingstarted/includes/hello/main.go
-
 ## Exercise
 
 From the command prompt type `go` and hit return to see the various tools the `go` command implements.  Try some like:
@@ -162,3 +151,16 @@ From the command prompt type `go` and hit return to see the various tools the `g
 	go env
 	go list
 	go version
+
+## Before Moving On
+
+- Make sure your `go` command works
+- Make sure you can run the "hello world" example above
+
+## Need Help?
+
+There are a lot of great resources available for you if you get stuck along the way.  The Go community is generally really friendly and helpful for programmers of all skill levels.  Don't be shy, and don't stay stuck too long.  Try these places if you have a question:
+
+- Gopher Slack
+- Other
+- Other
