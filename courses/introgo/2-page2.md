@@ -9,18 +9,18 @@ videoid:  "309130727"
 
 ## Introduction
 
-Brian Ketelsen - me@brianketelsen.com
+Brian Ketelsen - brian@gopher.rocks
 
-@bketelsen on twitter
-github.com/bketelsen
-https://brianketelsen.com
-https://gophercon.com
-https://blog.gopheracademy.com
-http://www.goinactionbook.com/
+- [@bketelsen](https://twitter.com/bketelsen) 
+- https://github.com/bketelsen
+- https://brianketelsen.com
+- https://gophercon.com
+- https://blog.gopheracademy.com
+- http://www.goinactionbook.com/
 
 ## Installing Go 
 
-Mac or Linux
+### Mac or Linux
 
 Download and install Go - always use the packages from golang.org - never use homebrew or apt-get, yum, etc. They're broken, or worse -- modified by someone upstream.
 
@@ -39,9 +39,7 @@ Log out and back in to get the changes or
 to hot-reload.
 
 
-## Installing Go 
-
-Windows
+### Windows
 
 Download and install Go - Use MSI installer
 
@@ -61,7 +59,7 @@ From a command prompt:
 
 You should see something like:
 
-	go version 1.8 linux/amd64
+	go version 1.11 linux/amd64
 
 ## Download Course Material
 

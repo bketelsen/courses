@@ -40,6 +40,24 @@
 
 .lesson p {
   clear: both;
+  padding-left: 10px;
+  padding-top: 4px;
+}
+
+.lesson h1 {
+  margin: 5px;
+  padding: 10px; 
+  background: #9f956c ;
+  border-radius: 8px;
+}
+
+.lesson h2 {
+  margin: 5px;
+  padding: 5px;
+}
+.lesson h3 {
+  margin: 5px;
+  padding: 5px;
 }
 
 .lesson-links {

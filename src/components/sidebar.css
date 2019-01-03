@@ -42,6 +42,9 @@
 .sidebar-header{
   text-transform: uppercase;
 }
+.sidebar-header h3 {
+  padding: 5px;
+}
 #sidebar {
   min-width: 250px;
   max-width: 250px;
