@@ -11,10 +11,10 @@ export default function Template(props) {
 
   return (
     <div className="lesson-container">
-        <Card
-          title="Contents"
-          content={allMarkdownRemark.edges}
-        />
+      <Card
+        title="Contents"
+        content={allMarkdownRemark.edges}
+      />
       <div className="lesson">
         <h1>{frontmatter.title}</h1>
         <div

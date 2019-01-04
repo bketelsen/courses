@@ -34,29 +34,29 @@ export default function Template(props) {
     ) : null;
   return (
 
-            <Sidebar
-          title="Lessons"
-          content={allMarkdownRemark.edges}>
-    <div className="lesson-container">
-      <div className="lesson">
-        <h1>{frontmatter.title}</h1>
-        <h2>{frontmatter.date}</h2>
-    <Vimeo 
-        video={ frontmatter.videoid } 
-        width="1080"
-        />
-        <div
-          className="lesson-content"
-          dangerouslySetInnerHTML={{ __html: html }}
-/>
-        <div className="lesson-links">
-          {prevLink}
-          {nextLink}
+    <Sidebar
+      title="Lessons"
+      content={allMarkdownRemark.edges}>
+      <div className="lesson-container">
+        <div className="lesson">
+          <h1>{frontmatter.title}</h1>
+          <h2>{frontmatter.date}</h2>
+          <Vimeo
+            video={frontmatter.videoid}
+            width="1080"
+          />
+          <div
+            className="lesson-content"
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
+          <div className="lesson-links">
+            {prevLink}
+            {nextLink}
+          </div>
         </div>
       </div>
-    </div>
 
-        </Sidebar>
+    </Sidebar>
   );
 }
 
