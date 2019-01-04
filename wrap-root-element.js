@@ -30,7 +30,6 @@ const Code = ({ codeString, language = "bash", ...props }) => {
 
 const components = {
   pre: preProps => {
-    console.log("pre", preProps);
     const props = preToCodeBlock(preProps);
     // if there's a codeString and some props, we passed the test
     if (props) {
