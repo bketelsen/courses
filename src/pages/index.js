@@ -20,7 +20,7 @@ const IndexPage = () => (
             keywords
           }
         }
-        allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___order] }, filter: {fields: { isCourse: { eq: true } }}) {
+        allMdx(sort: { order: ASC, fields: [frontmatter___order] }, filter: {fields: { isCourse: { eq: true } }}) {
           edges {
             node {
               id
@@ -45,7 +45,7 @@ const IndexPage = () => (
 
         <Card
           title="Courses"
-          content={props.allMarkdownRemark.edges}
+          content={props.allMdx.edges}
         />
       </div>
     )}

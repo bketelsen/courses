@@ -1,27 +1,25 @@
 import React from "react";
 import Link from "gatsby-link";
 import { graphql } from "gatsby";
+import { MDXRenderer } from "gatsby-mdx";
 import Card from "../components/TOCCourse";
 
 export default function Template(props) {
-  let { markdownRemark, allMarkdownRemark } = props.data; // data.markdownRemark holds our post data
+  let { mdx, allMdx } = props.data; // data.mdx holds our post data
 
-  const { frontmatter, html } = markdownRemark;
-
+  const { frontmatter, html } = mdx;
 
   return (
     <div className="lesson-container">
       <Card
         title="Contents"
-        content={allMarkdownRemark.edges}
+        content={allMdx.edges}
       />
       <div className="lesson">
         <h1>{frontmatter.title}</h1>
-        <div
+        <MDXRenderer
           className="lesson-content"
-          dangerouslySetInnerHTML={{ __html: html }}
-        />
-
+        >{mdx.code.body}</MDXRenderer>
       </div>
     </div>
   );
@@ -29,8 +27,10 @@ export default function Template(props) {
 
 export const pageQuery = graphql`
   query CourseByPath($path: String!, $course: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
+    mdx(frontmatter: { path: { eq: $path } }) {
+      code {
+        body
+      }
       frontmatter {
         path
         title
@@ -38,7 +38,7 @@ export const pageQuery = graphql`
         videoid
       }
     }
-    allMarkdownRemark(
+    allMdx(
       sort: { order: ASC, fields: [frontmatter___order] }
      	filter: { fields: { isCourse: {eq: false}, course: {eq: $course }}}
       limit: 1000

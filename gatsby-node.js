@@ -10,7 +10,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
   return graphql(`
     {
-      allMarkdownRemark(
+      allMdx(
         sort: { order: DESC, fields: [frontmatter___order] }
         limit: 1000
       ) {
@@ -38,7 +38,7 @@ exports.createPages = async ({ actions, graphql }) => {
         return Promise.reject(result.errors);
       }
 
-      result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+      result.data.allMdx.edges.forEach(({ node }) => {
         if (node.fields.sourceName === "courses") {
           console.log("creating a course page");
           console.log(node.fields.course);
@@ -69,7 +69,7 @@ exports.createPages = async ({ actions, graphql }) => {
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
 
-  if (node.internal.type === `MarkdownRemark`) {
+  if (node.internal.type === `Mdx`) {
     const parent = getNode(node.parent);
     if (parent.internal.type === "File") {
       createNodeField({

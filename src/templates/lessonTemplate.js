@@ -3,32 +3,33 @@ import Link from "gatsby-link";
 import { graphql } from "gatsby";
 import Sidebar from "../components/sidebar";
 import Vimeo from '@u-wave/react-vimeo';
+import { MDXRenderer } from "gatsby-mdx";
 
 export default function Template(props) {
-  let { markdownRemark, allMarkdownRemark } = props.data; // data.markdownRemark holds our post data
+  let { mdx, allMdx } = props.data; // data.mdx holds our post data
 
-  const { frontmatter, html } = markdownRemark;
+  const { frontmatter, html } = mdx;
   const prevLink =
     frontmatter.order > 0 ? (
       <Link
         className="prev"
         to={
-          allMarkdownRemark.edges[frontmatter.order - 1].node.frontmatter.path
+          allMdx.edges[frontmatter.order - 1].node.frontmatter.path
         }
       >
         {"← " +
-          allMarkdownRemark.edges[frontmatter.order - 1].node.frontmatter.title}
+          allMdx.edges[frontmatter.order - 1].node.frontmatter.title}
       </Link>
     ) : null;
   const nextLink =
-    frontmatter.order + 1 < allMarkdownRemark.edges.length ? (
+    frontmatter.order + 1 < allMdx.edges.length ? (
       <Link
         className="next"
         to={
-          allMarkdownRemark.edges[frontmatter.order + 1].node.frontmatter.path
+          allMdx.edges[frontmatter.order + 1].node.frontmatter.path
         }
       >
-        {allMarkdownRemark.edges[frontmatter.order + 1].node.frontmatter.title +
+        {allMdx.edges[frontmatter.order + 1].node.frontmatter.title +
           " →"}
       </Link>
     ) : null;
@@ -36,7 +37,7 @@ export default function Template(props) {
 
     <Sidebar
       title="Lessons"
-      content={allMarkdownRemark.edges}>
+      content={allMdx.edges}>
       <div className="lesson-container">
         <div className="lesson">
           <h1>{frontmatter.title}</h1>
@@ -45,10 +46,9 @@ export default function Template(props) {
             video={frontmatter.videoid}
             width="1080"
           />
-          <div
+          <MDXRenderer
             className="lesson-content"
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
+          >{mdx.code.body}</MDXRenderer>
           <div className="lesson-links">
             {prevLink}
             {nextLink}
@@ -62,8 +62,8 @@ export default function Template(props) {
 
 export const pageQuery = graphql`
   query LessonByPath($path: String!, $course: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
+    mdx(frontmatter: { path: { eq: $path } }) {
+      code { body }
       frontmatter {
         path
         title
@@ -71,7 +71,7 @@ export const pageQuery = graphql`
         videoid
       }
     }
-    allMarkdownRemark(
+    allMdx(
       sort: { order: ASC, fields: [frontmatter___order] }
      	filter: { fields: { isCourse: {eq: false}, course: {eq: $course }}}
       limit: 1000

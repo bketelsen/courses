@@ -18,7 +18,7 @@ module.exports = {
     `gatsby-plugin-layout`,
     {
       resolve: `gatsby-plugin-create-client-paths`,
-      options: { prefixes: [`/app/*`] },
+      options: { prefixes: [`/app/*`] }
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -29,12 +29,12 @@ module.exports = {
     },
     `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-mdx`,
       options: {
-        plugins: [
-          `gatsby-remark-autolink-headers`,
-          `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-prismjs`,
+        extensions: ['.md', '.mdx'],
+        gatsbyRemarkPlugins: [
+          {resolve: `gatsby-remark-autolink-headers`, options: {}},
+          {resolve: `gatsby-remark-copy-linked-files`, options: {}},
           {
             resolve: `gatsby-remark-images`,
             options: {
