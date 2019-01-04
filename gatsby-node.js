@@ -1,7 +1,7 @@
 const path = require("path");
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
-exports.createPages = async ({  actions, graphql }) => {
+exports.createPages = async ({ actions, graphql }) => {
   console.log("create pages");
   const { createPage } = actions;
 
@@ -34,35 +34,35 @@ exports.createPages = async ({  actions, graphql }) => {
       }
     }
   `).then(result => {
-    if (result.errors) {
-      return Promise.reject(result.errors);
-    }
+      if (result.errors) {
+        return Promise.reject(result.errors);
+      }
 
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      if (node.fields.sourceName ==="courses") {
-        console.log("creating a course page");
-        console.log(node.fields.course);
-      createPage({
-        path: node.frontmatter.path,
-        component: courseTemplate,
-        context: {
-          course: node.fields.course
+      result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+        if (node.fields.sourceName === "courses") {
+          console.log("creating a course page");
+          console.log(node.fields.course);
+          createPage({
+            path: node.frontmatter.path,
+            component: courseTemplate,
+            context: {
+              course: node.fields.course
+            }
+          });
+        } else {
+          console.log("creating a lesson page");
+          console.log(node.fields.course);
+          createPage({
+            path: node.frontmatter.path,
+            component: lessonTemplate,
+            context: {
+              course: node.fields.course
+            }
+
+          });
         }
       });
-      } else {
-        console.log("creating a lesson page");
-        console.log(node.fields.course);
-      createPage({
-        path: node.frontmatter.path,
-        component: lessonTemplate,
-        context: {
-          course: node.fields.course
-        }
-
-      });
-    }
     });
-  });
 };
 
 
@@ -82,24 +82,24 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
         node,
         value: false
       });
-      if (parent.relativeDirectory !="" ){
+      if (parent.relativeDirectory != "") {
 
-      createNodeField({
-        name: `course`,
-        node,
-        value: parent.relativeDirectory
-      });
-} else {
-      createNodeField({
-        name: `isCourse`,
-        node,
-        value: true
-      });
-      createNodeField({
-        name: `course`,
-        node,
-        value: node.frontmatter.path.split(path.sep).pop()
-      });
+        createNodeField({
+          name: `course`,
+          node,
+          value: parent.relativeDirectory
+        });
+      } else {
+        createNodeField({
+          name: `isCourse`,
+          node,
+          value: true
+        });
+        createNodeField({
+          name: `course`,
+          node,
+          value: node.frontmatter.path.split(path.sep).pop()
+        });
       }
     }
   }
